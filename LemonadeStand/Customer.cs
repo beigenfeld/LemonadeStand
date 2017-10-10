@@ -8,9 +8,9 @@ namespace LemonadeStand
 {
     class Customer
     {
-        //Thirst Level: Low, Med, Hi
-        //Weather Preference: More Likely to have hi thirst
-        //Price Level = 1.00 = +0, .90 = +1, .80 = +2, .70 = +3, .60 = +4, .50 = +5 
-        // .40 = +6, .30 = +7, .20 = +8, .10 = +9
+        //Thirst Level: Low, Med, Hi, multiplied by weather
+        
+        //Price Level = 1.00 = +1, .90 = +2, .80 = +3, .70 = +4, .60 = +5, .50 = +6 
+        // .40 = +7, .30 = +8, .20 = +9, .10 = +10
     }
 }

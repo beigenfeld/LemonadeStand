@@ -24,8 +24,8 @@ namespace LemonadeStand
         //member methods
         void DailyWeather ()
         {
-            rdm.Next(1, 5);
-            switch ()
+             
+            switch (rdm.Next(1, 5))
             {
                 case 1:
                     weatherToday = 1;
