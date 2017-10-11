@@ -28,7 +28,7 @@ namespace LemonadeStand
         protected void GetWeather ()
         {
              
-            switch (rdm.Next(1, 5))
+            switch (rdm.Next(1, 6))
             {
                 case 1:
                     weatherToday = 1;
