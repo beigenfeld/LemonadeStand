@@ -8,5 +8,18 @@ namespace LemonadeStand
 {
     class Player
     {
+        //notes
+
+
+        //member variables
+        string name;
+
+        //constructor
+        public Player()
+        {
+
+        }
+
+        //member methods
     }
 }

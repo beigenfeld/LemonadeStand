@@ -8,8 +8,28 @@ namespace LemonadeStand
 {
     class Day
     {
+        //notes
         //Day [i] 1-7
-        //Weather random switch-case for:
-        //Sunny, Cloudy, Rainy, HOT!
+        //DailyWeather
+        //
+        //daily income
+        //cups sold
+        //traffic counter
+        //base traffic 
+        //running total
+
+
+        //member variables
+
+
+        //constructor
+        public Day()
+        {
+            
+        }
+
+        //member methods
+        //GetDailyWeather(){
+
     }
 }
