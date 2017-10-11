@@ -13,10 +13,11 @@ namespace LemonadeStand
 
 
         //member variables
-        double cashOnHand;
-        int cupsOnHand;
-        int lemonsOnHand;
-        int sugarOnHand;
+        protected double cashOnHand;
+        protected int cupsOnHand;
+        protected int lemonsOnHand;
+        protected int sugarOnHand;
+        protected int iceOnHand;
 
         //constructor
         public Inventory()

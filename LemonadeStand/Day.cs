@@ -30,6 +30,6 @@ namespace LemonadeStand
 
         //member methods
         //GetDailyWeather(){
-
+        //EndOfDay(){display inventory, traffic, sales, cw(All your remaining Ice has melted) iceOnHand = 0;}
     }
 }
