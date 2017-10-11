@@ -10,9 +10,9 @@ namespace LemonadeStand
     {
         static void Main(string[] args)
         {
-            //instantiate game Game newGame = new Game
-            //game.RunGame();
-
+            Game newGame = new Game();
+            newGame.LemonyStandsSeriesOfUnfortunateEvents();
+            Console.ReadLine();
         }
     }
 }

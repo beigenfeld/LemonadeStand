@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Customer
+    class Customer : Day
     {
         //notes
         //Thirst Level: VeryLow = 1, Low = 2, Med = 3, Hi = 4, VeryHi = 5; multiplied by weather

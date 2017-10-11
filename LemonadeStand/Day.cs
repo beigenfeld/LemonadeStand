@@ -20,7 +20,7 @@ namespace LemonadeStand
 
 
         //member variables
-
+        string todaysWeather;
 
         //constructor
         public Day()
@@ -29,7 +29,7 @@ namespace LemonadeStand
         }
 
         //member methods
-        //GetDailyWeather(){
+        //GetWeather();
         //EndOfDay(){display inventory, traffic, sales, cw(All your remaining Ice has melted) iceOnHand = 0;}
     }
 }

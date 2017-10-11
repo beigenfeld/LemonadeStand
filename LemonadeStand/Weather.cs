@@ -25,7 +25,7 @@ namespace LemonadeStand
         }
 
         //member methods
-        void GetWeather ()
+        protected void GetWeather ()
         {
              
             switch (rdm.Next(1, 5))

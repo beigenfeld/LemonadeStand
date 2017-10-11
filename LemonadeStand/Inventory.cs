@@ -6,22 +6,24 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Inventory : Player
+    class Inventory
     {
         //notes
-        //lemons, sugar, cups, ice
+        
 
 
         //member variables
-        protected double cashOnHand;
-        protected int cupsOnHand;
-        protected int lemonsOnHand;
-        protected int sugarOnHand;
-        protected int iceOnHand;
+        public double cashOnHand;
+        public int cupsOnHand;
+        public int lemonsOnHand;
+        public int sugarOnHand;
+        public int iceOnHand;
+        public Store store;
 
         //constructor
         public Inventory()
         {
+            store = new Store();
             cashOnHand = 20.00;
             cupsOnHand = 0;
             lemonsOnHand = 0;
