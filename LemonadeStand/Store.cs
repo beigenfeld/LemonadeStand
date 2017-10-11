@@ -43,7 +43,7 @@ namespace LemonadeStand
 
         public void BuySupplies(Player player)
         {
-            Console.WriteLine("Would you like to buy\n[1] Cups\n[2] Lemons\n[3]Sugar\n[4] Ice\n[5] Nothing more.  I'm all set to sell some lemonade!");
+            Console.WriteLine("Would you like to buy:\n[1] Cups\n[2] Lemons\n[3]Sugar\n[4] Ice\n[5] Nothing more.  I'm all set to sell some lemonade!");
             string userInput = Console.ReadLine();
             
             switch (userInput)
@@ -51,9 +51,9 @@ namespace LemonadeStand
                 case "1":
                     BuyCups(player);
                     break;
-                //case "2":
-                //    BuyLemons();
-                //    break;
+                case "2":
+                    BuyLemons(player);
+                    break;
                 //case "3":
                 //    BuySugar();
                 //    break;
@@ -114,36 +114,48 @@ namespace LemonadeStand
 
         }
 
-        //void BuyLemons()
-        //{
-        //    Console.WriteLine("Would you like to buy\n[1] 10 Lemons for $1.00\n[2] 20 Lemons for $1.75\n[3] 50 Lemons for $4.00\n[4] Life has given me enough lemons.");
-        //    string userInput = Console.ReadLine();
-        //    double price = 0;
-        //    switch (userInput)
-        //    {
-        //        case "1":
-        //            //CheckIfEnough();
-        //            lemonsOnHand += lemonsOnHand + 10;
-        //            cashOnHand -= cashOnHand - 1;
-        //            break;
-        //        case "2":
-        //            //CheckIfEnough();
-        //            lemonsOnHand += lemonsOnHand + 20;
-        //            cashOnHand -= cashOnHand - 1.75;
-        //            break;
-        //        case "3":
-        //            //CheckIfEnough();
-        //            lemonsOnHand += lemonsOnHand + 50;
-        //            cashOnHand -= cashOnHand - 4;
-        //            break;
-        //        case "4":
-        //            break;
-        //        default:
-        //            Console.WriteLine("Sorry, we don't carry that here.  Please type in '1' '2' or '3'");
-        //            BuyLemons();
-        //            break;
-        //    }
-        //}
+        void BuyLemons(Player player)
+        {
+            Console.WriteLine("Would you like to buy\n[1] 10 Lemons for $1.00\n[2] 20 Lemons for $1.75\n[3] 50 Lemons for $4.00\n[4] Life has given me enough lemons.");
+            string userInput = Console.ReadLine();
+            double price = 0;
+            int quantity = 0;
+            switch (userInput)
+            {
+                case "1":
+                    price = 1;
+                    quantity = 10;
+                    break;
+                case "2":
+                    price = 1.75;
+                    quantity = 20;
+                    break;
+                case "3":
+                    price = 4;
+                    quantity = 50;
+                    break;
+                case "4":
+                    break;
+                default:
+                    Console.WriteLine("Sorry, we don't carry that here.  Please type in '1' '2' or '3'");
+                    BuyLemons(player);
+                    break;
+            }
+            if (CheckIfEnough(price, player.inventory.cashOnHand) == false)
+            {
+                Console.WriteLine("Ummmm, you seem to be a little short...");
+                BuyLemons(player);
+            }
+            else
+            {
+                player.inventory.lemonsOnHand += quantity;
+                player.inventory.cashOnHand -= price;
+                Console.WriteLine("You bought " + quantity + " Cups for $" + price);
+                DisplayInventory(player);
+                Console.WriteLine("Anything else?");
+                BuySupplies(player);
+            }
+        }
         //void BuySugar()
         //{
         //    Console.WriteLine("Would you like to buy\n[1] 10 cups of Sugar for $1.00\n[2] 20 cups of Sugar for $1.75\n[3] 50 cups of Sugar for $4.00\n[4] No more sugar for me, I'm sweet enough!");
