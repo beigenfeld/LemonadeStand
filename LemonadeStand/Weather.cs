@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Weather : Day
+    class Weather // IS A
     {
         //notes
         // 1=Rainy, 2=Cloudy, 3=hazy 4=Sunny, 5=HOT!; multiplier for thirst level
@@ -21,11 +21,12 @@ namespace LemonadeStand
         //constructor
         public Weather()
         {
-
+            GetWeather();
         }
 
         //member methods
-        protected void GetWeather ()
+
+        void GetWeather ()
         {
              
             switch (rdm.Next(1, 6))

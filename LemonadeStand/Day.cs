@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Day
+    class Day //: IS A (AND HAS UNIQUE QUALITIES)
     {
         //notes
+        //Weeks [j] 1-3 
         //Day [i] 1-7
         //DailyWeather
         //
@@ -19,7 +20,7 @@ namespace LemonadeStand
         //running total
 
 
-        //member variables
+        //member variables //HAS A
         public Weather todaysWeather;
 
         int dayOfTheWeekNumber;
@@ -27,9 +28,15 @@ namespace LemonadeStand
         int baseTraffic = 100;
         double dayTrafficMultiplier;
         //constructor
+
+        //The Day consists of: Creating the weather, (StartDay: ability to check forecast for the day, buy supplies, set your price, **adjust your recipe**, or OpenForBusiness),
+        //Open for business generates customers, factoring in the weather, day of the week, and **recipe**.  
+            //If you run out of any item, no more sales can be made that day. CheckForSupplies if(iceOnHand < icePerCup || cupsOnHand = 0)NoMoreSales
+            //if (lemonsOnHand < lemonsPerPitcher || sugarOnHand < sugarPerPitcher)NoMoreSales
+        //EndOfDay will display: traffic count, number of cups sold, total sales, cash on hand, and final inventory.
         public Day()
         {
-            todaysWeather = new Weather();
+            string todaysWeather;
         }
 
         //member methods
@@ -37,7 +44,7 @@ namespace LemonadeStand
         //GetSupplies();
         //EndOfDay(){display inventory, traffic, sales, cw(All your remaining Ice has melted) iceOnHand = 0;}
         
-        public void StartDay()
+        public void StartDay(Player player, Store store)
         {
             
             Console.WriteLine("Today is " + dayOfTheWeekName + ". What would you like to do?\n[1] Check Today's Forecast\n[2] Buy Supplies\n[3] ");
@@ -45,70 +52,105 @@ namespace LemonadeStand
             switch (userInput)
             {
                 case "1":
-
-                    break;
-                case "2":
                     //CheckForecast();
-                    Console.WriteLine("Today's weather will be: " + todaysWeather);
+                    Console.WriteLine("The forecast this week is: " + todaysWeather);
+                    break;
+                    
+                case "2":
+                    store.BuySupplies(player);
                     break;
                 case "3":
-                    store.BuySupplies();
+                    
                     break;
                 default:
                     Console.WriteLine("You want to do what?!  No, no, no.  Focus!  We have a lemonade stand to run!");
-                    StartDay();
+                    StartDay(player, store);
+                    break;
+            }
+        }
+
+        //nested loops to play multiple weeks
+        void PlayHowLong()
+        {
+            int numberOfWeeks;
+            Console.WriteLine("Play for how many weeks? [1] [2] or [3]");
+            string userInput = Console.ReadLine();
+            switch (userInput)
+            {
+                case "1":
+                    numberOfWeeks = 1;
+                    break;
+                case "2":
+                    numberOfWeeks = 2;
+                    break;
+                case "3":
+                    numberOfWeeks = 3;
+                    break;
+                default:
+                    Console.WriteLine("School starts before then, please select '1' '2' or '3' weeks.");
+                    PlayHowLong();
                     break;
             }
         }
         
-        //nested loops to play multiple weeks
-        void Monday()
-        {
-            dayOfTheWeekNumber = 1;
-            dayOfTheWeekName = "Monday";
-            dayTrafficMultiplier = .8;
+        void GetDay(week) {
+            for (int i = 1; i < 8; i++)
+            {
+                switch (i)
+                {
+                    case 1:
+                        dayOfTheWeekNumber = 1;
+                        dayOfTheWeekName = "Monday";
+                        dayTrafficMultiplier = .8;
+                        todaysWeather = week.weatherMonday;
+                        break;
+
+                    case 2:
+                        dayOfTheWeekNumber = 2;
+                        dayOfTheWeekName = "Tuesday";
+                        dayTrafficMultiplier = .9;
+                        break;
+
+                    case 3:
+                        dayOfTheWeekNumber = 3;
+                        dayOfTheWeekName = "Wednesday";
+                        dayTrafficMultiplier = 1;
+                        break;
+
+                    case 4:
+                        dayOfTheWeekNumber = 4;
+                        dayOfTheWeekName = "Thursday";
+                        dayTrafficMultiplier = 1.1;
+                        break;
+
+                    case 5:
+                        dayOfTheWeekNumber = 5;
+                        dayOfTheWeekName = "Friday";
+                        dayTrafficMultiplier = 1.6;
+                        break;
+
+                    case 6:
+                        dayOfTheWeekNumber = 6;
+                        dayOfTheWeekName = "Saturday";
+                        dayTrafficMultiplier = 1.8;
+                        break;
+
+                    case 7:
+                        dayOfTheWeekNumber = 7;
+                        dayOfTheWeekName = "Sunday";
+                        dayTrafficMultiplier = 1.4;
+                        break;
+                }
+            }
         }
 
-        void Tuesday()
-        {
-            dayOfTheWeekNumber = 2;
-            dayOfTheWeekName = "Tuesday";
-            dayTrafficMultiplier = .9;
 
-        }
-        void Wednesday()
-        {
-            dayOfTheWeekNumber = 3;
-            dayOfTheWeekName = "Wednesday";
-            dayTrafficMultiplier = 1;
-        }
 
-        void Thursday()
-        {
-            dayOfTheWeekNumber = 4;
-            dayOfTheWeekName = "Thursday";
-            dayTrafficMultiplier = 1.1;
-        }
 
-        void Friday()
-        {
-            dayOfTheWeekNumber = 5;
-            dayOfTheWeekName = "Friday";
-            dayTrafficMultiplier = 1.6;
-        }
 
-        void Saturday()
-        {
-            dayOfTheWeekNumber = 6;
-            dayOfTheWeekName = "Saturday";
-            dayTrafficMultiplier = 1.8;
-        }
 
-        void Sunday()
-        {
-            dayOfTheWeekNumber = 7;
-            dayOfTheWeekName = "Sunday";
-            dayTrafficMultiplier = 1.4;
-        }
+
+
+
     }
 }

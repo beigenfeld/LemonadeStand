@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Customer : Day
+    class Customer
     {
         //notes
         //Thirst Level: VeryLow = 1, Low = 2, Med = 3, Hi = 4, VeryHi = 5; multiplied by weather
@@ -17,6 +17,9 @@ namespace LemonadeStand
         //Daily Traffic level affected by day (Friday, Saturday, and Sunnday have a traffic multiplier) and weather
 
         //member variables
+        //likelihood to buy
+        //thirst level
+        //pass in weather from Day
         //var n = random.NextDouble();
 
         //constructor
@@ -26,7 +29,7 @@ namespace LemonadeStand
         }
 
         //member methods
-        //void WillTheyBuy = Price + thirst*weather; if over x, they will buy
+        //void WillTheyBuy = Price*frugality < thirst*weather; if over x, they will buy
         //else, if not buying, 1 in 10 chance they will buy anyway
         //buy function cashOnHand += cashOnHand + price, inventory -- 
     }
