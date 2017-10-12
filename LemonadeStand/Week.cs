@@ -8,7 +8,7 @@ namespace LemonadeStand
 {
     class Week
     {
-        //member variables
+        //member variables //a Week HAS A Day
         //weeklyForecast list
         //weatherMonday
         //weatherTuesday
@@ -17,18 +17,36 @@ namespace LemonadeStand
         //weatherFriday
         //weatherSaturday
         //weatherSunday
-        public Day day;
+        public List<Day> days;
+        
+        //int numberOfWeeks;
         //constructor
         public Week()
         {
-            day = new Day();
-            GetWeeklyForecast();
+            days = new List<Day>();
+            CreateWeek();
         }
 
         //member methods
-        void GetWeeklyForecast()
+        void CreateWeek()
         {
-            //GetWeather 7 times, assign to each day
+            for (int i = 1; i <= 7; i++)
+            {
+                Day day = new Day(i);
+                days.Add(day);
+            }
+
         }
+
+
+
+
+
+
+
+
+
+
+
     }
 }

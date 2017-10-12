@@ -15,21 +15,33 @@ namespace LemonadeStand
         public Player player;
         public Store store;
         public Week week;
-        
+        int numberOfWeeks = 0;
+        public List<Week> weeks;
+
+
 
         //constructor
         public Game()
         {
            player = new Player();
            store = new Store();
-            week = new Week();
-           
+           //week = new Week();
+           weeks = new List<Week>();
+
         }
 
 
         //member methods
-       
-            void DisplayRules()
+        void HowManyWeeks()
+        {
+            for (int j = 1; j <= numberOfWeeks; j++)
+            {
+                Week week = new Week();
+                weeks.Add(week);
+            }
+        }
+
+        void DisplayRules()
             {
                 Console.WriteLine(rules);
             }
@@ -37,14 +49,55 @@ namespace LemonadeStand
             {
                 //Console.WriteLine("The weather today is expected to be: " + GetWeather());
             }
-            //BuySupplies(); //(store, inventory) -> OpenForBusiness (day, weather)
-            //
-            //
-            public void LemonyStandsSeriesOfUnfortunateEvents()
+        //BuySupplies(); //(store, inventory) -> OpenForBusiness (day, weather)
+        //
+        //
+        public void PlayHowLong()
+        {
+            Console.WriteLine("Play for how many weeks? [1] [2] or [3]");
+            string userInput = Console.ReadLine();
+            switch (userInput)
+            {
+                case "1":
+                    numberOfWeeks = 1;
+                    break;
+                case "2":
+                    numberOfWeeks = 2;
+                    break;
+                case "3":
+                    numberOfWeeks = 3;
+                    break;
+                default:
+                    Console.WriteLine("Prime sales season will be over by then, please select '1' '2' or '3' weeks.");
+                    PlayHowLong();
+                    break;
+            }
+        }
+
+
+
+        public void LemonyStandsSeriesOfUnfortunateEvents()
             {
                 DisplayRules();
-                day.StartDay( player, store);
+                PlayHowLong();
+                HowManyWeeks();
+                //week.days[0].StartDay(player, store);
                 
             }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
