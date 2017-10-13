@@ -9,24 +9,21 @@ namespace LemonadeStand
     class Weather // IS A
     {
         //notes
-        // 1=Rainy, 2=Cloudy, 3=hazy 4=Sunny, 5=HOT!; multiplier for thirst level
-        //type of weather has a traffic multiplier. Rainy = .7, Cloudy = .9, hazy = 1, Sunny 1.5. Hot = 1.4
-        //
 
         //member variables
-        Random rdm = new Random();
+        
         int weatherToday;
         string weatherName;
         double weatherTrafficMultiplier;
         //constructor
-        public Weather()
+        public Weather(Random rdm)
         {
-            GetWeather();
+            GetWeather(rdm);
         }
 
         //member methods
 
-        public void GetWeather ()
+        public void GetWeather (Random rdm)
         {
              
             switch (rdm.Next(1, 6))

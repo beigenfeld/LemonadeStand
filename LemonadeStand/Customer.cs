@@ -45,7 +45,10 @@ namespace LemonadeStand
         }
 
         //member methods
-        
+        private void CreateCustomer()
+        {
+
+        }
         
         
         private void WillTheyBuy()
@@ -74,8 +77,8 @@ namespace LemonadeStand
 
        private void CheckGenerosity()
         {
-            Random rdm = new Random(1, 11);
-            if (rdm = 10)
+            generosityLevel = rdm.Next(1, 11);
+            if (generosityLevel == 10)
             {
                 MakeSale();
             }

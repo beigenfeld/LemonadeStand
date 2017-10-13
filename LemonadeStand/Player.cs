@@ -32,14 +32,17 @@ namespace LemonadeStand
 
         private void MakeSale (Recipe recipe)
         {
-            if (cupsPerPitcher != 0)
+            if (cupsInPitcher != 0)
             {
-                //cupsPerPitcher-- , cashOnHand += price, 
+                //cupsInPitcher-- , 
+                //cupsOnHand--
+                //icePerCup--
+                //cashOnHand += price, 
             }
             else
             {
                 MakeNewPitcher();
-
+                MakeSale();
             }
         }
 

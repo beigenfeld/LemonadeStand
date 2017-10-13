@@ -27,6 +27,7 @@ namespace LemonadeStand
         string dayOfTheWeekName;
         int baseTraffic = 100;
         double dayTrafficMultiplier;
+        int trafficToday;
         //constructor
 
         //The Day consists of: Creating the weather, (StartDay: ability to check forecast for the day, buy supplies, set your price, **adjust your recipe**, or OpenForBusiness),
@@ -34,10 +35,10 @@ namespace LemonadeStand
         //If you run out of any item, no more sales can be made that day. CheckForSupplies if(iceOnHand < icePerCup || cupsOnHand = 0)NoMoreSales
         //if (lemonsOnHand < lemonsPerPitcher || sugarOnHand < sugarPerPitcher)NoMoreSales
         //EndOfDay will display: traffic count, number of cups sold, total sales, cash on hand, and final inventory.
-        public Day(int dayOfWeek)
+        public Day(int dayOfWeek,Random rdm)
         {
             GetDay(dayOfWeek);
-            todaysWeather = new Weather();
+            todaysWeather = new Weather(rdm);
 
         }
 
@@ -101,7 +102,7 @@ namespace LemonadeStand
         public void StartDay(Player player, Store store)
         {
 
-            Console.WriteLine("Today is " + dayOfTheWeekName + ". What would you like to do?\n[1] Check Today's Forecast\n[2] Buy Supplies\n[3] Adjust Recipe");
+            Console.WriteLine("Today is " + dayOfTheWeekName + ". What would you like to do?\n[1] Check Today's Forecast\n[2] Buy Supplies\n[3] Adjust Recipe and Price");
             string userInput = Console.ReadLine();
             switch (userInput)
             {
@@ -114,7 +115,8 @@ namespace LemonadeStand
                     store.BuySupplies(player);
                     break;
                 case "3":
-
+                    Console.WriteLine("Which would you like to adjust? [1] Recipe [2] Price");
+                    //if '1' run ChooseRecipe, if '2' run SetPrice
                     break;
                 default:
                     Console.WriteLine("You want to do what?!  No, no, no.  Focus!  We have a lemonade stand to run!");
@@ -135,6 +137,16 @@ namespace LemonadeStand
             //display stats
             //NextDay() - move to the next index on the List, if Sunday, move to the next List
         }
+
+        private void TodaysTraffic()
+        {
+            trafficToday = baseTraffic * dayTrafficMultiplier * weatherTrafficMultiplier;
+        }
+
+
+
+
+
 
 
 

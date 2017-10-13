@@ -21,18 +21,18 @@ namespace LemonadeStand
         
         //int numberOfWeeks;
         //constructor
-        public Week()
+        public Week(Random rdm)
         {
             days = new List<Day>();
-            CreateWeek();
+            CreateWeek(rdm);
         }
 
         //member methods
-        void CreateWeek()
+        void CreateWeek(Random rdm)
         {
             for (int i = 1; i <= 7; i++)
             {
-                Day day = new Day(i);
+                Day day = new Day(i, rdm);
                 days.Add(day);
             }
 
