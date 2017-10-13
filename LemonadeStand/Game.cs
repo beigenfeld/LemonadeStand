@@ -12,11 +12,11 @@ namespace LemonadeStand
 
         //member variables
         Random rdm = new Random();
-        string rules = "Your goal is to make as much money as you can in 7 days by selling lemonade at your lemonade stand.  Buy cups, lemons, sugar, and ice cubes, then set your recipe based on the weather and conditions. Start with the basic recipe, but try to vary the recipe and see if you can do better. Lastly, set your price and sell your lemonade at the stand. Try changing up the price based on the weather conditions as well.  At the end of the game, you'll see how much money you made. Write it down and play again to try and beat your score!";
+        string rules = "Your goal is to make as much money as you can in 7 days by selling lemonade at your lemonade stand.  Buy cups, lemons, sugar, and ice cubes, then set your recipe based on the weather and conditions. Start with the basic recipe, of 2 lemons and 2 cups of sugar to make a pitcher that serves 5, and 3 ice cubes per cup when served, but try to vary the recipe and see if you can do better. Lastly, the price starts out at $.20 per cup, but try setting your price for the day based on the weather conditions as well.  At the end of each day, you'll see how much money you made. Save it and play again to try and beat your score!";
         public Player player;
         public Store store;
-        public Week week;
         int numberOfWeeks = 0;
+        int weekCounter = 0;//increment after Sunday
         public List<Week> weeks;
 
 
@@ -81,8 +81,8 @@ namespace LemonadeStand
             {
                 DisplayRules();
                 PlayHowLong();
-                HowManyWeeks();
-                StartDay(player, store);
+                HowManyWeeks(rdm);
+                weeks[weekCounter].days[weeks[weekCounter].dayCounter].StartDay(player, store);
                 //OpenForBusiness();
                 //EndOfDay();
             }

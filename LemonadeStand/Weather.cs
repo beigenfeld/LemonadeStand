@@ -14,7 +14,7 @@ namespace LemonadeStand
         
         int weatherToday;
         string weatherName;
-        double weatherTrafficMultiplier;
+        public double weatherTrafficMultiplier;
         //constructor
         public Weather(Random rdm)
         {

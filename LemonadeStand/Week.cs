@@ -10,13 +10,8 @@ namespace LemonadeStand
     {
         //member variables //a Week HAS A Day
         //weeklyForecast list
-        //weatherMonday
-        //weatherTuesday
-        //weatherWednesday
-        //weatherThursday
-        //weatherFriday
-        //weatherSaturday
-        //weatherSunday
+        public int dayCounter = 0;
+
         public List<Day> days;
         
         //int numberOfWeeks;
@@ -34,6 +29,7 @@ namespace LemonadeStand
             {
                 Day day = new Day(i, rdm);
                 days.Add(day);
+                
             }
 
         }

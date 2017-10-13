@@ -45,44 +45,41 @@ namespace LemonadeStand
         }
 
         //member methods
-        private void CreateCustomer()
-        {
-
-        }
+       
         
         
-        private void WillTheyBuy()
-        {
-            CheckPrice();
-            CheckThirst();
-            CheckGenerosity();
-        }
+        //private void WillTheyBuy()
+        //{
+        //    CheckPrice();
+        //    CheckThirst();
+        //    CheckGenerosity();
+        //}
 
-        private void CheckPrice()
-        {
-            if (priceLevel <= frugalityLevel)
-            {
-                MakeSale();
-            }
-        }
+        //private void CheckPrice()
+        //{
+        //    if (priceLevel <= frugalityLevel)
+        //    {
+        //        MakeSale();
+        //    }
+        //}
 
-        private void CheckThirst()
-        {
-           if (thirstLevel * weatherToday >= frugalityLevel * priceLevel)
-            {
-                frugalityLevel = frugalityLevel - thirstLevel;
-                CheckPrice();
-            }
-        }
+       // private void CheckThirst()
+       // {
+       //    if (thirstLevel * weatherToday >= frugalityLevel * priceLevel)
+       //     {
+       //         frugalityLevel = frugalityLevel - thirstLevel;
+       //         CheckPrice();
+       //     }
+       // }
 
-       private void CheckGenerosity()
-        {
-            generosityLevel = rdm.Next(1, 11);
-            if (generosityLevel == 10)
-            {
-                MakeSale();
-            }
-        }
+       //private void CheckGenerosity()
+       // {
+       //     generosityLevel = rdm.Next(1, 11);
+       //     if (generosityLevel == 10)
+       //     {
+       //         MakeSale();
+       //     }
+       // }
         //= Price*frugality < thirst*weather; if over x, they will buy
         //else, if not buying, 1 in 10 chance they will buy anyway
         //buy function cashOnHand += cashOnHand + price, pitcher -- 

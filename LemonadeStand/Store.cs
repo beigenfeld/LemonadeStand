@@ -21,14 +21,7 @@ namespace LemonadeStand
         }
 
         //member methods
-        void DisplayInventory(Player player) {
-            Console.WriteLine("Your inventory is now at:");
-            Console.WriteLine("Cash: $" + player.inventory.cashOnHand);
-            Console.WriteLine("Cups: " + player.inventory.cupsOnHand);
-            Console.WriteLine("Lemons: " + player.inventory.lemonsOnHand);
-            Console.WriteLine("Sugar: " + player.inventory.sugarOnHand);
-            Console.WriteLine("Ice: " + player.inventory.iceOnHand);
-        }
+        
         bool CheckIfEnough(double price, double cashOnHand)
         {
             if (price > cashOnHand)
@@ -61,7 +54,7 @@ namespace LemonadeStand
                     BuyIce(player);
                     break;
                 case "5":
-                    DisplayInventory(player);
+                    player.inventory.DisplayInventory();
                     BuySupplies(player);
                     break;
                 //case "6":
@@ -111,7 +104,7 @@ namespace LemonadeStand
                 player.inventory.cupsOnHand += quantity;
                 player.inventory.cashOnHand -= price;
                 Console.WriteLine("You bought " + quantity + " Cups for $" + price);
-                DisplayInventory(player);
+                player.inventory.DisplayInventory();
                 Console.WriteLine("Anything else?");
                 BuySupplies(player);
             }
@@ -155,7 +148,7 @@ namespace LemonadeStand
                 player.inventory.lemonsOnHand += quantity;
                 player.inventory.cashOnHand -= price;
                 Console.WriteLine("You bought " + quantity + " Cups for $" + price);
-                DisplayInventory(player);
+                player.inventory.DisplayInventory();
                 Console.WriteLine("Anything else?");
                 BuySupplies(player);
             }
@@ -196,7 +189,7 @@ namespace LemonadeStand
             {
                 player.inventory.sugarOnHand += quantity;
                 player.inventory.cashOnHand -= price;
-                DisplayInventory(player);
+                player.inventory.DisplayInventory();
                 Console.WriteLine("Anything else?");
                 BuySupplies(player);
             }
@@ -237,7 +230,7 @@ namespace LemonadeStand
             {
                 player.inventory.iceOnHand += quantity;
                 player.inventory.cashOnHand -= price;
-                DisplayInventory(player);
+                player.inventory.DisplayInventory();
                 Console.WriteLine("Anything else?");
                 BuySupplies(player);
             }

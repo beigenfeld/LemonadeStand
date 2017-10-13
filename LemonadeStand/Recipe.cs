@@ -9,11 +9,14 @@ namespace LemonadeStand
     class Recipe
     {
         //member variables
+
         int lemonsPerPitcher = 2;
         int sugarPerPitcher = 2;
         int icePerCup = 3;
         int cupsInPitcher;
         //constructor
+
+        
         //number of lemons per pitcher 1, 2, 3, customer preference if 1 and lem/pitcher = 3, "Too strong", or vice versa, "Too Weak" bump last 3 customers from the list
         //cups of sugar per pitcher 1, 2, 3, customer pref
         //each pitcher serves 5 customers
@@ -21,8 +24,9 @@ namespace LemonadeStand
 
 
         //member methods
-        private void ChooseRecipe()
+        public void ChangeRecipe()
         {
+            
             Console.WriteLine("Each pitcher will have 5 servings");
             HowManyLemons();
             HowMuchSugar();
@@ -99,15 +103,15 @@ namespace LemonadeStand
 
         private void MakeNewPitcher(Player player)
         {
-            CheckForIngredients();
-            lemonsOnHand -= lemonsPerPitcher;
-            sugarOnHand -= sugarPerPitcher;
+            CheckForIngredients(player);
+            player.inventory.lemonsOnHand -= lemonsPerPitcher;
+            player.inventory.sugarOnHand -= sugarPerPitcher;
             cupsInPitcher = 5;
         }
 
-        private void CheckForIngredients()
+        private void CheckForIngredients(Player player)
         {
-            if (lemonsPerPitcher < lemonsOnHand || sugarPerPitcher < sugarOnHand) //any ingredient in recipe < ingredientOnHand)
+            if (lemonsPerPitcher < player.inventory.lemonsOnHand || sugarPerPitcher < player.inventory.sugarOnHand) //any ingredient in recipe < ingredientOnHand)
             {
                 //cw:"You ran short on supplies?" run EndOfDay()
             }

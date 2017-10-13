@@ -31,5 +31,14 @@ namespace LemonadeStand
         }
 
         //member methods
+        public void DisplayInventory()
+        {
+            Console.WriteLine("Your inventory is now at:");
+            Console.WriteLine("Cash: $" + cashOnHand);
+            Console.WriteLine("Cups: " + cupsOnHand);
+            Console.WriteLine("Lemons: " + lemonsOnHand);
+            Console.WriteLine("Sugar: " + sugarOnHand);
+            Console.WriteLine("Ice: " + iceOnHand);
+        }
     }
 }

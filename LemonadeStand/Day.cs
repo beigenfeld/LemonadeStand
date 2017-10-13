@@ -16,22 +16,21 @@ namespace LemonadeStand
         //daily income
         //cups sold
         //traffic counter
-        //base traffic 
-        //running total
 
 
         //member variables //HAS A 
         public Weather todaysWeather;
-
+        //List of Customers
         int dayOfTheWeekNumber;
         string dayOfTheWeekName;
         int baseTraffic = 100;
         double dayTrafficMultiplier;
-        int trafficToday;
+        double trafficToday;
+        int cupsSold = 0;
         //constructor
 
         //The Day consists of: Creating the weather, (StartDay: ability to check forecast for the day, buy supplies, set your price, **adjust your recipe**, or OpenForBusiness),
-        //Open for business generates customers, factoring in the weather, day of the week, and **recipe**.  
+        //Open for business generates customers, factoring in the weather, day of the week, and recipe.  
         //If you run out of any item, no more sales can be made that day. CheckForSupplies if(iceOnHand < icePerCup || cupsOnHand = 0)NoMoreSales
         //if (lemonsOnHand < lemonsPerPitcher || sugarOnHand < sugarPerPitcher)NoMoreSales
         //EndOfDay will display: traffic count, number of cups sold, total sales, cash on hand, and final inventory.
@@ -102,7 +101,7 @@ namespace LemonadeStand
         public void StartDay(Player player, Store store)
         {
 
-            Console.WriteLine("Today is " + dayOfTheWeekName + ". What would you like to do?\n[1] Check Today's Forecast\n[2] Buy Supplies\n[3] Adjust Recipe and Price");
+            Console.WriteLine("Today is " + dayOfTheWeekName + ". What would you like to do?\n[1] Check Today's Forecast\n[2] Check Inventory\n[3] Buy Supplies\n[4] Adjust Recipe\n[5] Adjust Price");
             string userInput = Console.ReadLine();
             switch (userInput)
             {
@@ -112,11 +111,16 @@ namespace LemonadeStand
                     break;
 
                 case "2":
-                    store.BuySupplies(player);
+                    player.inventory.DisplayInventory();
                     break;
                 case "3":
-                    Console.WriteLine("Which would you like to adjust? [1] Recipe [2] Price");
-                    //if '1' run ChooseRecipe, if '2' run SetPrice
+                    store.BuySupplies(player);
+                    break;
+                case "4":
+                    player.recipe.ChangeRecipe();
+                    break;
+                case "5":
+                    player.SetPrice();
                     break;
                 default:
                     Console.WriteLine("You want to do what?!  No, no, no.  Focus!  We have a lemonade stand to run!");
@@ -132,15 +136,23 @@ namespace LemonadeStand
             
         }
 
-        private void EndOfDay()
-        {
-            //display stats
-            //NextDay() - move to the next index on the List, if Sunday, move to the next List
-        }
+        //private void EndOfDay()
+        //{
+        //    Console.WriteLine("The day has come to a close, and it's time to count the till!");
+        //    Console.WriteLine("You sold" + cupsSold + " cups of lemonade today for $" +(cupsSold * pricePerCup) + " in sales.");
+        //    Console.WriteLine("Your remaining Ice has melted");
+        //    iceOnHand = 0;
+        //    Console.WriteLine("Here is a list of your remaining inventory:");
+        //    DisplayInventory();
+        //    //display stats
+        //    //NextDay() - increment dayCounter(Week class), if Sunday, increment the weekCounter(Game class)
+        //    //
+        //}
 
         private void TodaysTraffic()
         {
-            trafficToday = baseTraffic * dayTrafficMultiplier * weatherTrafficMultiplier;
+            
+            trafficToday = baseTraffic * dayTrafficMultiplier * todaysWeather.weatherTrafficMultiplier;
         }
 
 
