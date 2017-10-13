@@ -17,8 +17,8 @@ namespace LemonadeStand
         //constructor
 
         
-        //number of lemons per pitcher 1, 2, 3, customer preference if 1 and lem/pitcher = 3, "Too strong", or vice versa, "Too Weak" bump last 3 customers from the list
-        //cups of sugar per pitcher 1, 2, 3, customer pref
+        //number of lemons per pitcher 1, 2, 3, customer preference if 1 and lem/pitcher = 3, "Too strong!", or vice versa, "Too weak!" bump last 3 customers from the list
+        //cups of sugar per pitcher 1, 2, 3, customer pref if 1 and sugarPerPitcher = 3, "Too sweet!", or vice versa, "Too tart!"
         //each pitcher serves 5 customers
         //If strength level and sweetness level match exactly, add 1 customer to the end of the list
 

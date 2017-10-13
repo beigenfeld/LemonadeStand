@@ -51,7 +51,10 @@ namespace LemonadeStand
         //    }
         //}
 
+        private void ChangePrice()
+        {
 
+        }
 
 
     }

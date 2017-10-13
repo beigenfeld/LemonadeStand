@@ -9,10 +9,7 @@ namespace LemonadeStand
     class Day //: IS A (AND HAS UNIQUE QUALITIES)
     {
         //notes
-        //Weeks [j] 1-3 
-        //Day [i] 1-7
         //DailyWeather
-        //
         //daily income
         //cups sold
         //traffic counter
