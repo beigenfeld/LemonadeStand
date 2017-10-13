@@ -20,7 +20,7 @@ namespace LemonadeStand
 
         //Where do the TrafficMultipliers come in?
 
-        //Thirst Level: VeryLow = 2, Low = 4, Med = 6, Hi = 8, VeryHi = 10; multiplied by weather **1-10**
+        //Thirst Level: randomly generated number 1-10; multiplied by weather **1-5**
 
         //Price Level = 1.00 = +1, .90 = +2, .80 = +3, .70 = +4, .60 = +5, .50 = +6 
         // .40 = +7, .30 = +8, .20 = +9, .10 = +10
@@ -31,6 +31,8 @@ namespace LemonadeStand
         int thirstLevel;
         int strengthPreference;
         int sweetPreference;
+        //int chillPreference;
+        int frugalityLevel;
         int generosityLevel;
         //
         //pass in weather from Day
@@ -44,15 +46,47 @@ namespace LemonadeStand
 
         //member methods
         
-        private void TodaysTraffic(int baseTraffic, Day day, Weather weather)
-        {
-
-        }
         
-        //void CustomerConverter = Price*frugality < thirst*weather; if over x, they will buy
+        
+        private void WillTheyBuy()
+        {
+            CheckPrice();
+            CheckThirst();
+            CheckGenerosity();
+        }
+
+        private void CheckPrice()
+        {
+            if (priceLevel <= frugalityLevel)
+            {
+                MakeSale();
+            }
+        }
+
+        private void CheckThirst()
+        {
+           if (thirstLevel * weatherToday >= frugalityLevel * priceLevel)
+            {
+                frugalityLevel = frugalityLevel - thirstLevel;
+                CheckPrice();
+            }
+        }
+
+       private void CheckGenerosity()
+        {
+            Random rdm = new Random(1, 11);
+            if (rdm = 10)
+            {
+                MakeSale();
+            }
+        }
+        //= Price*frugality < thirst*weather; if over x, they will buy
         //else, if not buying, 1 in 10 chance they will buy anyway
         //buy function cashOnHand += cashOnHand + price, pitcher -- 
-        
+
+
+        //foreach index on the List of customers of length "trafficToday"
+        //
         //
     }
 }
