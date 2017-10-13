@@ -29,5 +29,22 @@ namespace LemonadeStand
             Console.WriteLine("What is your name?");
             name = Console.ReadLine();
         }
+
+        private void MakeSale (Recipe recipe)
+        {
+            if (cupsPerPitcher != 0)
+            {
+                //cupsPerPitcher-- , cashOnHand += price, 
+            }
+            else
+            {
+                MakeNewPitcher();
+
+            }
+        }
+
+
+
+
     }
 }

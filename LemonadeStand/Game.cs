@@ -81,8 +81,9 @@ namespace LemonadeStand
                 DisplayRules();
                 PlayHowLong();
                 HowManyWeeks();
-                //week.days[0].StartDay(player, store);
-                
+                StartDay(player, store);
+                //OpenForBusiness();
+                //EndOfDay();
             }
 
 

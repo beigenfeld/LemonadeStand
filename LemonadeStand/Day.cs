@@ -46,34 +46,8 @@ namespace LemonadeStand
         //GetSupplies();
         //EndOfDay(){display inventory, traffic, sales, cw(All your remaining Ice has melted) iceOnHand = 0;}
 
-        public void StartDay(Player player, Store store)
-        {
-
-            Console.WriteLine("Today is " + dayOfTheWeekName + ". What would you like to do?\n[1] Check Today's Forecast\n[2] Buy Supplies\n[3] ");
-            string userInput = Console.ReadLine();
-            switch (userInput)
-            {
-                case "1":
-                    //CheckForecast();
-                    Console.WriteLine("The forecast this week is: " + todaysWeather);
-                    break;
-
-                case "2":
-                    store.BuySupplies(player);
-                    break;
-                case "3":
-
-                    break;
-                default:
-                    Console.WriteLine("You want to do what?!  No, no, no.  Focus!  We have a lemonade stand to run!");
-                    StartDay(player, store);
-                    break;
-            }
-        }
-
-        //nested loops to play multiple weeks
-
-
+        
+        
         void GetDay(int dayOfWeek)
         {
             switch (dayOfWeek)
@@ -124,10 +98,43 @@ namespace LemonadeStand
 
         }
 
+        public void StartDay(Player player, Store store)
+        {
 
+            Console.WriteLine("Today is " + dayOfTheWeekName + ". What would you like to do?\n[1] Check Today's Forecast\n[2] Buy Supplies\n[3] Adjust Recipe");
+            string userInput = Console.ReadLine();
+            switch (userInput)
+            {
+                case "1":
+                    //CheckForecast();
+                    Console.WriteLine("The forecast this week is: " + todaysWeather);
+                    break;
 
+                case "2":
+                    store.BuySupplies(player);
+                    break;
+                case "3":
 
+                    break;
+                default:
+                    Console.WriteLine("You want to do what?!  No, no, no.  Focus!  We have a lemonade stand to run!");
+                    StartDay(player, store);
+                    break;
+            }
+        }
 
+        private void OpenForBusiness()
+        {
+            //Generate customer hoard
+            //WillTheyBuy() foreach loop
+            
+        }
+
+        private void EndOfDay()
+        {
+            //display stats
+            //NextDay() - move to the next index on the List, if Sunday, move to the next List
+        }
 
 
 
