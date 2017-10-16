@@ -29,7 +29,7 @@ namespace LemonadeStand
         //The Day consists of: Creating the weather, (StartDay: ability to check forecast for the day, buy supplies, set your price, **adjust your recipe**, or OpenForBusiness),
         //Open for business generates customers, factoring in the weather, day of the week, and recipe.  
         //If you run out of any item, no more sales can be made that day. CheckForSupplies if(iceOnHand < icePerCup || cupsOnHand = 0)NoMoreSales
-        //if (lemonsOnHand < lemonsPerPitcher || sugarOnHand < sugarPerPitcher)NoMoreSales
+        //if (lemonsOnHand < lemonsPerPitcher || sugarOnHand < sugarPerPitcher)EndOfDay
         //EndOfDay will display: traffic count, number of cups sold, total sales, cash on hand, and final inventory.
         public Day(int dayOfWeek,Random rdm)
         {
@@ -103,7 +103,7 @@ namespace LemonadeStand
             switch (userInput)
             {
                 case "1":
-                    //CheckForecast();
+                    CheckForecast();
                     Console.WriteLine("The forecast this week is: " + todaysWeather);
                     break;
 
@@ -117,7 +117,7 @@ namespace LemonadeStand
                     player.recipe.ChangeRecipe();
                     break;
                 case "5":
-                    player.SetPrice();
+                    player.ChangePrice();
                     break;
                 default:
                     Console.WriteLine("You want to do what?!  No, no, no.  Focus!  We have a lemonade stand to run!");
@@ -129,22 +129,24 @@ namespace LemonadeStand
         private void OpenForBusiness()
         {
             //Generate customer hoard
-            //WillTheyBuy() foreach loop
+            //WillTheyBuy() loop
             
         }
 
-        //private void EndOfDay()
-        //{
-        //    Console.WriteLine("The day has come to a close, and it's time to count the till!");
-        //    Console.WriteLine("You sold" + cupsSold + " cups of lemonade today for $" +(cupsSold * pricePerCup) + " in sales.");
-        //    Console.WriteLine("Your remaining Ice has melted");
-        //    iceOnHand = 0;
-        //    Console.WriteLine("Here is a list of your remaining inventory:");
-        //    DisplayInventory();
-        //    //display stats
-        //    //NextDay() - increment dayCounter(Week class), if Sunday, increment the weekCounter(Game class)
-        //    //
-        //}
+        private void EndOfDay()
+        {
+            //    Console.WriteLine("The day has come to a close, and it's time to count the till!");
+            //    Console.WriteLine("You sold" + cupsSold + " cups of lemonade today for $" +(cupsSold * pricePerCup) + " in sales.");
+            //    Console.WriteLine("Your remaining Ice has melted");
+            //    iceOnHand = 0;
+            //    Console.WriteLine("Here is a list of your remaining inventory:");
+            //    DisplayInventory();
+            //    //display stats
+            Console.WriteLine("This is the end of day function.");
+            //    //Console.ReadLine();
+            //    //NextDay() - increment dayCounter(Week class), if Sunday, increment the weekCounter(Game class)
+            //    //
+        }
 
         private void TodaysTraffic()
         {

@@ -10,10 +10,10 @@ namespace LemonadeStand
     {
         //member variables
 
-        int lemonsPerPitcher = 2;
-        int sugarPerPitcher = 2;
-        int icePerCup = 3;
-        int cupsInPitcher;
+        public int lemonsPerPitcher = 2;
+        public int sugarPerPitcher = 2;
+        public int icePerCup = 3;
+        
         //constructor
 
         
@@ -101,21 +101,9 @@ namespace LemonadeStand
         }
 
 
-        private void MakeNewPitcher(Player player)
-        {
-            CheckForIngredients(player);
-            player.inventory.lemonsOnHand -= lemonsPerPitcher;
-            player.inventory.sugarOnHand -= sugarPerPitcher;
-            cupsInPitcher = 5;
-        }
+        
 
-        private void CheckForIngredients(Player player)
-        {
-            if (lemonsPerPitcher < player.inventory.lemonsOnHand || sugarPerPitcher < player.inventory.sugarOnHand) //any ingredient in recipe < ingredientOnHand)
-            {
-                //cw:"You ran short on supplies?" run EndOfDay()
-            }
-        }
+        
 
 
 

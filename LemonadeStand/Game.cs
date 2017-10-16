@@ -24,16 +24,15 @@ namespace LemonadeStand
         //constructor
         public Game()
         {
-           player = new Player();
-           store = new Store();
-           //week = new Week();
-           weeks = new List<Week>();
-
+            DisplayRules();
+            player = new Player();
+            store = new Store();
+            weeks = new List<Week>();
         }
 
 
         //member methods
-        void HowManyWeeks(Random rdm)
+        void EstablishWeeks(Random rdm)
         {
             for (int j = 1; j <= numberOfWeeks; j++)
             {
@@ -79,9 +78,9 @@ namespace LemonadeStand
 
         public void LemonyStandsSeriesOfUnfortunateEvents()
             {
-                DisplayRules();
+                
                 PlayHowLong();
-                HowManyWeeks(rdm);
+                EstablishWeeks(rdm);
                 weeks[weekCounter].days[weeks[weekCounter].dayCounter].StartDay(player, store);
                 //OpenForBusiness();
                 //EndOfDay();
