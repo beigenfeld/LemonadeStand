@@ -9,12 +9,9 @@ namespace LemonadeStand
     class Week
     {
         //member variables //a Week HAS A Day
-        //weeklyForecast list
         public int dayCounter = 0;
-
         public List<Day> days;
         
-        //int numberOfWeeks;
         //constructor
         public Week(Random rdm)
         {
@@ -29,12 +26,15 @@ namespace LemonadeStand
             {
                 Day day = new Day(i, rdm);
                 days.Add(day);
-                
             }
-
         }
 
-
+        public void DisplayForecast(Day day)
+        {
+            foreach (int dayOfWeek in List<Week>weeks[i] /*in the list for that week only*/) {
+                Console.WriteLine(dayOfTheWeekName: todaysWeather);
+            }
+        }
 
 
 

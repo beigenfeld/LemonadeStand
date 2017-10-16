@@ -81,12 +81,22 @@ namespace LemonadeStand
                 
                 PlayHowLong();
                 EstablishWeeks(rdm);
-                weeks[weekCounter].days[weeks[weekCounter].dayCounter].StartDay(player, store);
+                weeks[weekCounter].days[weeks[weekCounter].dayCounter].StartDay(player, store, weeks[weekCounter]);
                 //OpenForBusiness();
                 //EndOfDay();
             }
+         
+        private void NextDay()
+        {
 
-
+            //if day < [6] increment day
+            //StartDay();
+            //if day = [6], increment week
+            //- increment dayCounter(Week class), if Sunday (dayCounter = [6]), increment the weekCounter(Game class)
+            //StartDay();
+            //If week = 2 and day = 6,
+            //EndGame();
+        }
 
 
 

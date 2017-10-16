@@ -14,16 +14,16 @@ namespace LemonadeStand
         //cups sold
         //traffic counter
 
-
+        
         //member variables //HAS A 
         public Weather todaysWeather;
-        //List of Customers
+        List<Customer>;//List of Customers
         int dayOfTheWeekNumber;
         string dayOfTheWeekName;
         int baseTraffic = 100;
         double dayTrafficMultiplier;
         double trafficToday;
-        int cupsSold = 0;
+        
         //constructor
 
         //The Day consists of: Creating the weather, (StartDay: ability to check forecast for the day, buy supplies, set your price, **adjust your recipe**, or OpenForBusiness),
@@ -71,7 +71,7 @@ namespace LemonadeStand
                 case 4:
                     dayOfTheWeekNumber = 4;
                     dayOfTheWeekName = "Thursday";
-                    dayTrafficMultiplier = 1.1;
+                    dayTrafficMultiplier = 1.2;
                     break;
 
                 case 5:
@@ -95,7 +95,7 @@ namespace LemonadeStand
 
         }
 
-        public void StartDay(Player player, Store store)
+        public void StartDay(Player player, Store store, Week week)
         {
 
             Console.WriteLine("Today is " + dayOfTheWeekName + ". What would you like to do?\n[1] Check Today's Forecast\n[2] Check Inventory\n[3] Buy Supplies\n[4] Adjust Recipe\n[5] Adjust Price");
@@ -103,7 +103,7 @@ namespace LemonadeStand
             switch (userInput)
             {
                 case "1":
-                    CheckForecast();
+                    week.DisplayForecast(this);
                     Console.WriteLine("The forecast this week is: " + todaysWeather);
                     break;
 
@@ -121,36 +121,36 @@ namespace LemonadeStand
                     break;
                 default:
                     Console.WriteLine("You want to do what?!  No, no, no.  Focus!  We have a lemonade stand to run!");
-                    StartDay(player, store);
+                    StartDay(player, store, week);
                     break;
             }
         }
 
         private void OpenForBusiness()
         {
-            //Generate customer hoard
+            Generate customer hoard
             //WillTheyBuy() loop
             
         }
 
-        private void EndOfDay()
+        public void EndOfDay(Player player)
         {
-            //    Console.WriteLine("The day has come to a close, and it's time to count the till!");
-            //    Console.WriteLine("You sold" + cupsSold + " cups of lemonade today for $" +(cupsSold * pricePerCup) + " in sales.");
-            //    Console.WriteLine("Your remaining Ice has melted");
-            //    iceOnHand = 0;
-            //    Console.WriteLine("Here is a list of your remaining inventory:");
-            //    DisplayInventory();
-            //    //display stats
-            Console.WriteLine("This is the end of day function.");
-            //    //Console.ReadLine();
-            //    //NextDay() - increment dayCounter(Week class), if Sunday, increment the weekCounter(Game class)
-            //    //
+            Console.WriteLine("The day has come to a close, and it's time to count the till!");
+            Console.WriteLine("You sold" + player.cupsSold + " cups of lemonade today for $" + (player.cupsSold * player.pricePerCup) + " in sales.");
+            Console.ReadLine();
+            Console.WriteLine("Your remaining Ice has melted");
+            player.inventory.iceOnHand = 0;
+            Console.ReadLine();
+            Console.WriteLine("Here is a list of your remaining inventory:");
+            player.inventory.DisplayInventory();
+            Console.WriteLine("Press any key to continue");
+            Console.ReadLine();
         }
+
+        
 
         private void TodaysTraffic()
         {
-            
             trafficToday = baseTraffic * dayTrafficMultiplier * todaysWeather.weatherTrafficMultiplier;
         }
 
