@@ -40,7 +40,7 @@ namespace LemonadeStand
         public void MakeSale(Week week)
         {
             if (cupsInPitcher != 0)
-            {
+            { 
                 cupsInPitcher -= 1;
                 inventory.cupsOnHand -= 1;
                 inventory.iceOnHand -= recipe.icePerCup;

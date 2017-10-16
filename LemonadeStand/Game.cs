@@ -82,10 +82,11 @@ namespace LemonadeStand
                 PlayHowLong();
                 EstablishWeeks(rdm);
                 weeks[weekCounter].days[weeks[weekCounter].dayCounter].StartDay(player, store, weeks[weekCounter]);
-                //OpenForBusiness();
-                //EndOfDay();
+                weeks[weekCounter].days[weeks[weekCounter].dayCounter].OpenForBusiness(player, weeks[weekCounter]);
+                weeks[weekCounter].days[weeks[weekCounter].dayCounter].EndOfDay(player);
+                NextDay();
             }
-         
+
         private void NextDay()
         {
 

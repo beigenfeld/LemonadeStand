@@ -17,7 +17,7 @@ namespace LemonadeStand
         
         //member variables //HAS A 
         public Weather todaysWeather;
-        List<Customer>;//List of Customers
+        List<Customer> customerList;
         int dayOfTheWeekNumber;
         string dayOfTheWeekName;
         int baseTraffic = 100;
@@ -35,7 +35,9 @@ namespace LemonadeStand
         {
             GetDay(dayOfWeek);
             todaysWeather = new Weather(rdm);
-
+            customerList = new List<Customer>();
+            TodaysTraffic();
+            CreateCustomerList(rdm);
         }
 
         //member methods
@@ -43,7 +45,15 @@ namespace LemonadeStand
         //GetSupplies();
         //EndOfDay(){display inventory, traffic, sales, cw(All your remaining Ice has melted) iceOnHand = 0;}
 
-        
+        private void CreateCustomerList(Random rdm)
+        {
+            for (int i=0; i < trafficToday; i++)
+            {
+                Customer customer = new Customer(rdm);
+                customerList.Add(customer);
+            }
+            
+        }
         
         void GetDay(int dayOfWeek)
         {
@@ -126,11 +136,12 @@ namespace LemonadeStand
             }
         }
 
-        private void OpenForBusiness()
+        private void OpenForBusiness(Player player, Week week)
         {
-            Generate customer hoard
-            //WillTheyBuy() loop
-            
+            for (int i = 0; i < customerList.Count; i++)
+            {
+                customerList[i].WillTheyBuy(player, week);
+            }
         }
 
         public void EndOfDay(Player player)
@@ -152,6 +163,7 @@ namespace LemonadeStand
         private void TodaysTraffic()
         {
             trafficToday = baseTraffic * dayTrafficMultiplier * todaysWeather.weatherTrafficMultiplier;
+
         }
 
 
