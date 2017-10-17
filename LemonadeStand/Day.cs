@@ -111,7 +111,6 @@ namespace LemonadeStand
                     StartDay(player, store, week);
                     break;
                 case "6":
-                    OpenForBusiness(player, week);
                     break;
                 default:
                     Console.WriteLine("You want to do what?!  No, no, no.  Focus!  We have a lemonade stand to run!");
@@ -132,9 +131,11 @@ namespace LemonadeStand
         {
             Console.WriteLine("You had " + customerList.Count + " people walk by your Stand today.\n");
             Console.WriteLine("The day has come to a close, and it's time to count the till!");
-            Console.WriteLine("You sold " + player.cupsSold + " cups of lemonade today for $" + (player.cupsSold * player.pricePerCup) + " in sales.\n");
+            Console.WriteLine("You sold " + player.cupsSold + " cups of lemonade today for " + (player.cupsSold * player.pricePerCup).ToString("C") + " in sales.\n");
             Console.WriteLine("Your remaining Ice has melted.\n");
             player.inventory.iceOnHand = 0;
+            player.cupsInPitcher = 0;
+            player.cupsSold = 0;
             Console.WriteLine("Here is a list of your remaining inventory:");
             player.inventory.DisplayInventory();
             Console.WriteLine("Press any key to continue");

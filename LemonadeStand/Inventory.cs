@@ -30,7 +30,7 @@ namespace LemonadeStand
         public void DisplayInventory()
         {
             Console.WriteLine("Your inventory is now at:");
-            Console.WriteLine("Cash: $" + cashOnHand);
+            Console.WriteLine("Cash: " + cashOnHand.ToString("C"));
             Console.WriteLine("Cups: " + cupsOnHand);
             Console.WriteLine("Lemons: " + lemonsOnHand);
             Console.WriteLine("Sugar: " + sugarOnHand);

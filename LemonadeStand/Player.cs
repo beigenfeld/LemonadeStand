@@ -16,7 +16,7 @@ namespace LemonadeStand
         public double pricePerCup = .2;
         public int cupsSold = 0;
         public int priceLevel = 9;
-        int cupsInPitcher;
+        public int cupsInPitcher;
         string amount = ".20";
 
         //constructor
@@ -37,36 +37,22 @@ namespace LemonadeStand
 
         public void MakeSale(Week week)
         {
-            if (cupsInPitcher != 0)
+            
+            if (cupsInPitcher > 0  && inventory.cupsOnHand != 0 && inventory.iceOnHand > recipe.icePerCup)
             {
-                CheckForSupplies(week);
                 cupsInPitcher -= 1;
                 inventory.cupsOnHand -= 1;
                 inventory.iceOnHand -= recipe.icePerCup;
                 inventory.cashOnHand += pricePerCup;
                 cupsSold++;
             }
-            else
+            else if (inventory.cupsOnHand != 0 && inventory.iceOnHand > recipe.icePerCup)
             {
                 CheckForIngredients(week);
                 MakeNewPitcher();
                 MakeSale(week);
             }
-        }
-
-        private void CheckForSupplies(Week week)
-        {
-            if (inventory.cupsOnHand == 0)
-            {
-                Console.WriteLine("Oh no!  You've run out of Cups and had to close down for the day!");
-                week.days[week.dayCounter].EndOfDay(this);
-            }
-            else if (inventory.iceOnHand < recipe.icePerCup)
-            {
-                Console.WriteLine("Oh no!  You've run out of Ice and had to close down for the day!");
-                week.days[week.dayCounter].EndOfDay(this);
-            }
-        }
+        }  
 
         private void CheckForIngredients(Week week)
         {

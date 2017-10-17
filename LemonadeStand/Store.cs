@@ -90,7 +90,7 @@ namespace LemonadeStand
             }
             if (CheckIfEnough(price, player.inventory.cashOnHand) == false)
             {
-                Console.WriteLine("Ummmm, you seem to be a little short... You only have $" + player.inventory.cashOnHand);
+                Console.WriteLine("Ummmm, you seem to be a little short... You only have " + player.inventory.cashOnHand.ToString("C"));
                 BuyCups(player);
             }
             else

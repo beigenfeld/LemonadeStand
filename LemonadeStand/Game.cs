@@ -70,10 +70,11 @@ namespace LemonadeStand
             {
                 week.dayCounter++;
             }
-                
-            else if (weekCounter > numberOfWeeks)
+
+            else if (weekCounter < numberOfWeeks)
             {
-                weekCounter++; 
+                weekCounter++;
+                week.dayCounter = 0;
             }
         }
 
@@ -90,11 +91,14 @@ namespace LemonadeStand
             EstablishWeeks(rdm);
             for (int i = 0; i < numberOfWeeks; i++)
             {
-                Day today = weeks[weekCounter].days[weeks[weekCounter].dayCounter];
-                today.StartDay(player, store, weeks[weekCounter]);
-                today.OpenForBusiness(player, weeks[weekCounter]);
-                today.EndOfDay(player);
-                NextDay(weeks[weekCounter]);
+                for (int j = 0; j <=6; j++)
+                {
+                    Day today = weeks[weekCounter].days[weeks[weekCounter].dayCounter];
+                    today.StartDay(player, store, weeks[weekCounter]);
+                    today.OpenForBusiness(player, weeks[weekCounter]);
+                    today.EndOfDay(player);
+                    NextDay(weeks[weekCounter]);
+                }
             }
             EndGame();
         }
