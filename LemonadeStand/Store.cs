@@ -57,11 +57,11 @@ namespace LemonadeStand
                     player.inventory.DisplayInventory();
                     BuySupplies(player);
                     break;
-                //case "6":
-                //    //OpenForBusiness();
-                //    break;
+                case "6":
+                    
+                    break;
                 default:
-                    Console.WriteLine("Sorry, we don't carry that here.  Please type in '1' '2' '3' or '4'");
+                    Console.WriteLine("Sorry, we don't carry that here.  Please type in '1' '2' '3' '4' '5' or '6'");
                     BuySupplies(player);
                     break;
             }
@@ -147,7 +147,7 @@ namespace LemonadeStand
             {
                 player.inventory.lemonsOnHand += quantity;
                 player.inventory.cashOnHand -= price;
-                Console.WriteLine("You bought " + quantity + " Cups for $" + price);
+                Console.WriteLine("You bought " + quantity + " Lemons for $" + price);
                 player.inventory.DisplayInventory();
                 Console.WriteLine("Anything else?");
                 BuySupplies(player);
@@ -189,6 +189,7 @@ namespace LemonadeStand
             {
                 player.inventory.sugarOnHand += quantity;
                 player.inventory.cashOnHand -= price;
+                Console.WriteLine("You bought " + quantity + " cups of Sugar for $" + price);
                 player.inventory.DisplayInventory();
                 Console.WriteLine("Anything else?");
                 BuySupplies(player);
@@ -230,6 +231,7 @@ namespace LemonadeStand
             {
                 player.inventory.iceOnHand += quantity;
                 player.inventory.cashOnHand -= price;
+                Console.WriteLine("You bought " + quantity + " cubes of Ice for $" + price);
                 player.inventory.DisplayInventory();
                 Console.WriteLine("Anything else?");
                 BuySupplies(player);

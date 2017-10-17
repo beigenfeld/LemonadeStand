@@ -13,7 +13,7 @@ namespace LemonadeStand
         //member variables
         
         public int weatherNumber;
-        string weatherName;
+        public string weatherName;
         public double weatherTrafficMultiplier;
         //constructor
         public Weather(Random rdm)

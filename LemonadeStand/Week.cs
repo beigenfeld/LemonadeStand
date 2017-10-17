@@ -29,11 +29,16 @@ namespace LemonadeStand
             }
         }
 
-        public void DisplayForecast(Day day)
+        public void DisplayForecast(Week week)
         {
-            foreach (int dayOfWeek in List<Week>weeks[i] /*in the list for that week only*/) {
-                Console.WriteLine(dayOfTheWeekName: todaysWeather);
+            Console.WriteLine("The forecast this week is:");
+            //foreach (int dayOfWeek in List<Week>weeks[i] /*in the list for that week only*/) {
+            foreach (Day day in days)
+            {
+                Console.WriteLine(day.dayOfTheWeekName + ": " + day.todaysWeather.weatherName);
             }
+            
+
         }
 
 

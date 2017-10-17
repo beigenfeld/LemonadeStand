@@ -52,7 +52,7 @@ namespace LemonadeStand
 
 
 
-        private void WillTheyBuy(Player player, Week week)
+        public void WillTheyBuy(Player player, Week week)
         {
             CheckPrice(player, week);
             CheckThirst(player, week);
@@ -69,7 +69,7 @@ namespace LemonadeStand
 
         private void CheckThirst(Player player, Week week)
         {
-            if (thirstLevel * week.days[day.weatherToday] >= frugalityLevel * player.priceLevel)
+            if (thirstLevel * (2 * week.days[week.dayCounter].todaysWeather.weatherNumber) >= frugalityLevel * player.priceLevel)
             {
                 frugalityLevel -= thirstLevel;
                 CheckPrice(player, week);
@@ -83,13 +83,8 @@ namespace LemonadeStand
                 player.MakeSale(week);
             }
         }
-        //= Price*frugality < thirst*weather; if over x, they will buy
-        //else, if not buying, 1 in 10 chance they will buy anyway
-        //buy function cashOnHand += cashOnHand + price, pitcher -- 
+        
 
 
-        //foreach index on the List of customers of length "trafficToday"
-        //
-        //
     }
 }

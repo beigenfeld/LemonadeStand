@@ -78,38 +78,45 @@ namespace LemonadeStand
 
         public void LemonyStandsSeriesOfUnfortunateEvents()
             {
-                
-                PlayHowLong();
+
+
+            PlayHowLong();
                 EstablishWeeks(rdm);
-                weeks[weekCounter].days[weeks[weekCounter].dayCounter].StartDay(player, store, weeks[weekCounter]);
-                weeks[weekCounter].days[weeks[weekCounter].dayCounter].OpenForBusiness(player, weeks[weekCounter]);
-                weeks[weekCounter].days[weeks[weekCounter].dayCounter].EndOfDay(player);
-                NextDay();
+                for (int i = 0; i < numberOfWeeks; i++) {
+                    Day today = weeks[weekCounter].days[weeks[weekCounter].dayCounter];
+                    today.StartDay(player, store, weeks[weekCounter]);
+                    today.OpenForBusiness(player, weeks[weekCounter]);
+                    today.EndOfDay(player);
+                    NextDay(weeks[weekCounter]);
+                }
+                //close loop
+               // EndGame();
             }
 
-        private void NextDay()
+        private void NextDay(Week week)
         {
 
-            //if day < [6] increment day
-            //StartDay();
-            //if day = [6], increment week
-            //- increment dayCounter(Week class), if Sunday (dayCounter = [6]), increment the weekCounter(Game class)
-            //StartDay();
-            //If week = 2 and day = 6,
-            //EndGame();
+            if (week.dayCounter < 6)
+            {
+                week.dayCounter++;
+            }
+                
+            else if (weekCounter > numberOfWeeks)
+            {
+                weekCounter++;
+            }
+        }
+
+        private void EndGame()
+        {
+            Console.WriteLine("The summer draws to a close.  You ended up with $" + player.inventory.cashOnHand);
+            //Console.WriteLine("That's an average of $"  " per week!")
+            Console.ReadLine();
         }
 
 
 
-
-
-
-
-
-
-
-
-
+        
 
     }
 }

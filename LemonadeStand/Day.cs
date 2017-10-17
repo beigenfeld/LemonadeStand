@@ -19,7 +19,7 @@ namespace LemonadeStand
         public Weather todaysWeather;
         List<Customer> customerList;
         int dayOfTheWeekNumber;
-        string dayOfTheWeekName;
+        public string dayOfTheWeekName;
         int baseTraffic = 100;
         double dayTrafficMultiplier;
         double trafficToday;
@@ -108,26 +108,39 @@ namespace LemonadeStand
         public void StartDay(Player player, Store store, Week week)
         {
 
-            Console.WriteLine("Today is " + dayOfTheWeekName + ". What would you like to do?\n[1] Check Today's Forecast\n[2] Check Inventory\n[3] Buy Supplies\n[4] Adjust Recipe\n[5] Adjust Price");
+            Console.WriteLine("Today is " + dayOfTheWeekName + ", and the weather is going to be " + todaysWeather.weatherName + ". What would you like to do?\n[1] Check this week's Forecast\n[2] Check Inventory\n[3] Buy Supplies\n[4] Adjust Recipe\n[5] Adjust Price\n[6] Sell some Lemonade!");
             string userInput = Console.ReadLine();
             switch (userInput)
             {
                 case "1":
-                    week.DisplayForecast(this);
-                    Console.WriteLine("The forecast this week is: " + todaysWeather);
+                    week.DisplayForecast(week);
+                    
+                    Console.WriteLine("Anything else?");
+                    StartDay(player, store, week);
                     break;
 
                 case "2":
                     player.inventory.DisplayInventory();
+                    Console.WriteLine("Anything else?");
+                    StartDay(player, store, week);
                     break;
                 case "3":
                     store.BuySupplies(player);
+                    Console.WriteLine("Anything else?");
+                    StartDay(player, store, week);
                     break;
                 case "4":
                     player.recipe.ChangeRecipe();
+                    Console.WriteLine("Anything else?");
+                    StartDay(player, store, week);
                     break;
                 case "5":
                     player.ChangePrice();
+                    Console.WriteLine("Anything else?");
+                    StartDay(player, store, week);
+                    break;
+                case "6":
+                    OpenForBusiness(player, week);
                     break;
                 default:
                     Console.WriteLine("You want to do what?!  No, no, no.  Focus!  We have a lemonade stand to run!");
@@ -136,7 +149,7 @@ namespace LemonadeStand
             }
         }
 
-        private void OpenForBusiness(Player player, Week week)
+        public void OpenForBusiness(Player player, Week week)
         {
             for (int i = 0; i < customerList.Count; i++)
             {
@@ -147,6 +160,7 @@ namespace LemonadeStand
         public void EndOfDay(Player player)
         {
             Console.WriteLine("The day has come to a close, and it's time to count the till!");
+            Console.WriteLine("You had " + customerList.Count + " people walk by your Stand today.");
             Console.WriteLine("You sold" + player.cupsSold + " cups of lemonade today for $" + (player.cupsSold * player.pricePerCup) + " in sales.");
             Console.ReadLine();
             Console.WriteLine("Your remaining Ice has melted");
