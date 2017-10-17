@@ -8,12 +8,8 @@ namespace LemonadeStand
 {
     class Store
     {
-        //notes
-
-
         //member variables
         
-
         //constructor
         public Store()
         {
@@ -36,9 +32,8 @@ namespace LemonadeStand
 
         public void BuySupplies(Player player)
         {
-            Console.WriteLine("Would you like to buy:\n[1] Cups\n[2] Lemons\n[3] Sugar\n[4] Ice\n[5] Check Inventory\n[6] Nothing more.  I'm all set to sell some lemonade!");
+            Console.WriteLine("Would you like to buy:\n[1] Cups\n[2] Lemons\n[3] Sugar\n[4] Ice\n[5] Check Inventory\n[6] Nothing more.  Back to Main Menu.");
             string userInput = Console.ReadLine();
-            
             switch (userInput)
             {
                 case "1":
@@ -58,7 +53,6 @@ namespace LemonadeStand
                     BuySupplies(player);
                     break;
                 case "6":
-                    
                     break;
                 default:
                     Console.WriteLine("Sorry, we don't carry that here.  Please type in '1' '2' '3' '4' '5' or '6'");
@@ -236,7 +230,6 @@ namespace LemonadeStand
                 Console.WriteLine("Anything else?");
                 BuySupplies(player);
             }
-            
         }
     }
 }

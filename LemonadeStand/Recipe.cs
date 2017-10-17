@@ -9,28 +9,31 @@ namespace LemonadeStand
     class Recipe
     {
         //member variables
-
         public int lemonsPerPitcher = 2;
         public int sugarPerPitcher = 2;
-        public int icePerCup = 3;
-        
+        public int icePerCup = 2;
+
         //constructor
+        public Recipe()
+        {
 
-        
-        //number of lemons per pitcher 1, 2, 3, customer preference if 1 and lem/pitcher = 3, "Too strong!", or vice versa, "Too weak!" bump last 3 customers from the list
-        //cups of sugar per pitcher 1, 2, 3, customer pref if 1 and sugarPerPitcher = 3, "Too sweet!", or vice versa, "Too tart!"
-        //each pitcher serves 5 customers
-        //If strength level and sweetness level match exactly, add 1 customer to the end of the list
-
-
+        }
         //member methods
         public void ChangeRecipe()
         {
-            
+            DisplayCurrentRecipe();
             Console.WriteLine("Each pitcher will have 5 servings");
             HowManyLemons();
             HowMuchSugar();
             HowMuchIce();
+        }
+
+        private void DisplayCurrentRecipe()
+        {
+            Console.WriteLine("Your current recipe is:");
+            Console.WriteLine("Lemons per pitcher: " + lemonsPerPitcher);
+            Console.WriteLine("Cups of Sugar per pitcher: " + sugarPerPitcher);
+            Console.WriteLine("Ice cubes per Cup: " + icePerCup);
         }
 
         void HowManyLemons()
@@ -75,7 +78,6 @@ namespace LemonadeStand
                     HowMuchSugar();
                     break;
             }
-
         }
 
         private void HowMuchIce()
@@ -99,14 +101,5 @@ namespace LemonadeStand
                     break;
             }
         }
-
-
-        
-
-        
-
-
-
-
     }
 }

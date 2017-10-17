@@ -8,7 +8,7 @@ namespace LemonadeStand
 {
     class Week
     {
-        //member variables //a Week HAS A Day
+        //member variables
         public int dayCounter = 0;
         public List<Day> days;
         
@@ -32,22 +32,10 @@ namespace LemonadeStand
         public void DisplayForecast(Week week)
         {
             Console.WriteLine("The forecast this week is:");
-            //foreach (int dayOfWeek in List<Week>weeks[i] /*in the list for that week only*/) {
             foreach (Day day in days)
             {
                 Console.WriteLine(day.dayOfTheWeekName + ": " + day.todaysWeather.weatherName);
             }
-            
-
         }
-
-
-
-
-
-
-
-
-
     }
 }

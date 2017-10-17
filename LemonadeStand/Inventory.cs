@@ -8,10 +8,6 @@ namespace LemonadeStand
 {
     class Inventory
     {
-        //notes
-        
-
-
         //member variables
         public double cashOnHand;
         public int cupsOnHand;

@@ -8,8 +8,6 @@ namespace LemonadeStand
 {
     class Game
     {
-        //notes
-
         //member variables
         Random rdm = new Random();
         string rules = "Your goal is to make as much money as you can in 7 days by selling lemonade at your lemonade stand.  Buy cups, lemons, sugar, and ice cubes, then set your recipe based on the weather and conditions. Start with the basic recipe, of 2 lemons and 2 cups of sugar to make a pitcher that serves 5, and 3 ice cubes per cup when served, but try to vary the recipe and see if you can do better. Lastly, the price starts out at $.20 per cup, but try setting your price for the day based on the weather conditions as well.  At the end of each day, you'll see how much money you made. Save it and play again to try and beat your score!";
@@ -18,9 +16,7 @@ namespace LemonadeStand
         int numberOfWeeks = 0;
         int weekCounter = 0;//increment after Sunday
         public List<Week> weeks;
-
-
-
+        
         //constructor
         public Game()
         {
@@ -29,8 +25,7 @@ namespace LemonadeStand
             store = new Store();
             weeks = new List<Week>();
         }
-
-
+        
         //member methods
         void EstablishWeeks(Random rdm)
         {
@@ -45,13 +40,7 @@ namespace LemonadeStand
             {
                 Console.WriteLine(rules);
             }
-            void CheckForecast()
-            {
-                //Console.WriteLine("The weather today is expected to be: " + GetWeather());
-            }
-        //BuySupplies(); //(store, inventory) -> OpenForBusiness (day, weather)
-        //
-        //
+            
         public void PlayHowLong()
         {
             Console.WriteLine("Play for how many weeks? [1] [2] or [3]");
@@ -74,25 +63,6 @@ namespace LemonadeStand
             }
         }
 
-
-
-        public void LemonyStandsSeriesOfUnfortunateEvents()
-            {
-
-
-            PlayHowLong();
-                EstablishWeeks(rdm);
-                for (int i = 0; i < numberOfWeeks; i++) {
-                    Day today = weeks[weekCounter].days[weeks[weekCounter].dayCounter];
-                    today.StartDay(player, store, weeks[weekCounter]);
-                    today.OpenForBusiness(player, weeks[weekCounter]);
-                    today.EndOfDay(player);
-                    NextDay(weeks[weekCounter]);
-                }
-                //close loop
-               // EndGame();
-            }
-
         private void NextDay(Week week)
         {
 
@@ -103,7 +73,7 @@ namespace LemonadeStand
                 
             else if (weekCounter > numberOfWeeks)
             {
-                weekCounter++;
+                weekCounter++; 
             }
         }
 
@@ -114,9 +84,19 @@ namespace LemonadeStand
             Console.ReadLine();
         }
 
-
-
-        
-
+        public void LemonyStandsSeriesOfUnfortunateEvents()
+        {
+            PlayHowLong();
+            EstablishWeeks(rdm);
+            for (int i = 0; i < numberOfWeeks; i++)
+            {
+                Day today = weeks[weekCounter].days[weeks[weekCounter].dayCounter];
+                today.StartDay(player, store, weeks[weekCounter]);
+                today.OpenForBusiness(player, weeks[weekCounter]);
+                today.EndOfDay(player);
+                NextDay(weeks[weekCounter]);
+            }
+            EndGame();
+        }
     }
 }

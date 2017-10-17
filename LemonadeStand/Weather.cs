@@ -6,15 +6,13 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Weather // IS A
+    class Weather
     {
-        //notes
-
         //member variables
-        
         public int weatherNumber;
         public string weatherName;
         public double weatherTrafficMultiplier;
+
         //constructor
         public Weather(Random rdm)
         {
@@ -22,10 +20,8 @@ namespace LemonadeStand
         }
 
         //member methods
-
         public void GetWeather (Random rdm)
         {
-             
             switch (rdm.Next(1, 6))
             {
                 case 1:
