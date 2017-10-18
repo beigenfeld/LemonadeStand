@@ -13,6 +13,7 @@ namespace LemonadeStand
             Game newGame = new Game();
             newGame.LemonyStandsSeriesOfUnfortunateEvents();
             Console.ReadLine();
+            System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection("Server=.\\SQLEXPRESS;Database=Database1_log");
         }
     }
 }
